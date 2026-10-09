@@ -6,22 +6,17 @@ import {
   ArrowUpRight,
   Award,
   BarChart3,
-  BriefcaseBusiness,
-  Check,
   ChevronRight,
   Code2,
   Database,
-  Download,
-  ExternalLink,
   FileChartColumnIncreasing,
+  BriefcaseBusiness,
   Github,
   GraduationCap,
   Layers3,
-  Linkedin,
   Mail,
   Menu,
   Send,
-  Sparkles,
   X,
 } from "lucide-react";
 
@@ -31,6 +26,7 @@ const navItems = [
   ["Projects", "projects"],
   ["Experience", "experience"],
   ["Education", "education"],
+  ["Certifications", "certifications"],
   ["Contact", "contact"],
 ] as const;
 
@@ -67,30 +63,18 @@ const projects = [
   {
     id: "01",
     title: "E-Commerce Sales & Customer Analytics",
-    description:
-      "Analyzed 1,500+ e-commerce orders to explore sales performance, product trends, regional performance, and customer segments.",
+    description: "I analyzed more than 1,500 e-commerce orders with Excel, SQL, Python, and Power BI.",
+    datasetSize: "1,500+ orders",
     technologies: ["Excel", "SQL", "Python", "Pandas", "Matplotlib", "Power BI"],
-    highlights: [
-      "Cleaned and transformed sales data",
-      "Calculated business metrics with SQL and Excel",
-      "Explored trends using Python and Pandas",
-      "Designed an interactive sales and customer dashboard",
-    ],
-    kind: "commerce",
+    kind: "commerce" as const,
   },
   {
     id: "02",
     title: "Employee Attrition Analysis",
-    description:
-      "Analyzed 300 employee records to explore attrition patterns and understand how workforce trends vary across employee groups.",
+    description: "I analyzed 300 employee records for an employee attrition analysis using Excel, SQL, Python, and Power BI.",
+    datasetSize: "300 records",
     technologies: ["Excel", "SQL", "Python", "Power BI"],
-    highlights: [
-      "Compared attrition across departments and employee groups",
-      "Explored overtime, satisfaction, salary, and age",
-      "Cleaned data and performed exploratory analysis",
-      "Built a dashboard to communicate workforce insights",
-    ],
-    kind: "people",
+    kind: "people" as const,
   },
 ];
 
@@ -98,9 +82,8 @@ const education = [
   {
     degree: "B.Tech in Computer Science and Engineering",
     school: "Mohan Babu University",
-    location: "Tirupati, Andhra Pradesh",
     date: "2023 — 2027",
-    result: "CGPA 8.67",
+    result: "8.67",
     icon: GraduationCap,
   },
   {
@@ -122,22 +105,21 @@ const education = [
 ];
 
 const certifications = [
-  { name: "Google Data Analytics Professional Certificate", issuer: "Google", mark: "G", tone: "google" },
-  { name: "Microsoft Power BI Data Analyst", issuer: "Microsoft", mark: "M", tone: "microsoft" },
-  { name: "Python for Data Analysis", issuer: "Cisco", mark: "C", tone: "cisco" },
-  { name: "SQL for Data Analytics", issuer: "Udemy", mark: "U", tone: "udemy" },
+  { name: "Google Data Analytics Professional Certificate", issuer: "Google" },
+  { name: "Microsoft Power BI Data Analyst", issuer: "Microsoft" },
+  { name: "Python for Data Analysis", issuer: "Cisco" },
+  { name: "SQL for Data Analytics", issuer: "Udemy" },
 ];
 
 function ResumeButton({ className = "" }: { className?: string }) {
   return (
     <a
       className={`resume-button ${className}`}
-      href="#contact"
-      aria-label="Resume PDF not yet added. Contact Ravi Kumar to request a copy."
-      title="Resume PDF not added yet — contact me to request a copy"
+      href="mailto:grk18d@gmail.com?subject=Resume%20request"
+      aria-label="Email Ravi Kumar to request a resume"
     >
-      <Download size={15} strokeWidth={2} />
-      <span>Download Resume</span>
+      <Mail size={15} strokeWidth={2} />
+      <span>Request Resume</span>
     </a>
   );
 }
@@ -171,7 +153,7 @@ function SectionHeading({
   );
 }
 
-function DashboardPreview({ kind }: { kind: string }) {
+function DashboardPreview({ kind }: { kind: "commerce" | "people" }) {
   const commerce = kind === "commerce";
   return (
     <div className={`dashboard-preview ${commerce ? "commerce-dashboard" : "people-dashboard"}`} aria-label={`${commerce ? "E-commerce" : "Employee attrition"} dashboard design mockup`}>
@@ -213,7 +195,7 @@ function DashboardPreview({ kind }: { kind: string }) {
           <div className="donut-legend"><span><i />{commerce ? "Category A" : "Group A"}</span><span><i />{commerce ? "Category B" : "Group B"}</span><span><i />{commerce ? "Category C" : "Group C"}</span></div>
         </div>
       </div>
-      <div className="dashboard-footer"><span><i /> Illustrative dashboard mockup</span><span>{commerce ? "SALES & CUSTOMER INSIGHTS" : "WORKFORCE OVERVIEW"}</span></div>
+      <div className="dashboard-footer"><span><i /> Illustrative dashboard preview</span><span>{commerce ? "SALES & CUSTOMER INSIGHTS" : "WORKFORCE OVERVIEW"}</span></div>
     </div>
   );
 }
@@ -227,8 +209,8 @@ function HeroVisual() {
       <div className="floating-dot dot-two" />
       <div className="floating-dot dot-three" />
       <div className="float-card float-insight">
-        <span className="float-icon"><Sparkles size={15} /></span>
-        <span><small>DATA INSIGHT</small><b>Patterns, made clear.</b></span>
+        <span className="float-icon"><BarChart3 size={15} /></span>
+        <span><small>DATA ANALYSIS</small><b>From questions to charts</b></span>
       </div>
       <div className="hero-dashboard">
         <div className="hero-dash-head"><div><i /><i /><i /></div><span>ANALYTICS OVERVIEW</span><span className="dash-head-dots">•••</span></div>
@@ -336,12 +318,12 @@ function App() {
             <div className="hero-copy">
               <span className="hero-label"><span className="status-dot" /> ASPIRING DATA ANALYST</span>
               <h1>Golla Ravi<br /><span> Kumar.</span></h1>
-              <p className="hero-tagline">Turning data into insights.<br /><span>Transforming insights into decisions.</span></p>
-              <p className="hero-description">I’m a Computer Science and Engineering student passionate about data analytics, business intelligence, and visualization. I use Python, SQL, Excel, and Power BI to uncover patterns and communicate meaningful insights.</p>
+              <p className="hero-tagline">Data analysis &amp; business intelligence<br /><span>Computer Science student · 2023–2027</span></p>
+              <p className="hero-description">I’m Golla Ravi Kumar, a Computer Science and Engineering student at Mohan Babu University. I use Python, SQL, Excel, and BI tools to work through practical data questions.</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#projects">Explore My Projects <ArrowRight size={16} /></a>
+                <a className="button button-primary" href="#projects">View Projects <ArrowRight size={16} /></a>
                 <ResumeButton className="button-outline" />
-                <a className="text-link" href="#contact">Contact Me <ArrowDownRight size={15} /></a>
+                <a className="text-link" href="#contact">Get in touch <ArrowDownRight size={15} /></a>
               </div>
               <div className="tech-row"><span>TOOLS I WORK WITH</span><div>{techBadges.map((tool) => <span className="tech-badge" key={tool}>{tool}</span>)}</div></div>
             </div>
@@ -354,26 +336,26 @@ function App() {
           <div className="container">
             <div className="about-layout">
               <div className="about-main">
-                <SectionHeading eyebrow="A LITTLE ABOUT ME" title={<>Curious by nature.<br /><span>Analytical by instinct.</span></>} />
-                <p className="about-copy">I’m currently pursuing a B.Tech in Computer Science and Engineering at Mohan Babu University. My interests include exploratory data analysis, business intelligence, data visualization, and solving practical problems using data.</p>
-                <p className="about-copy">During my Data Analyst and Business Intelligence internship, I worked with structured datasets, prepared reports, and developed Power BI dashboards. I enjoy turning complex information into clear, useful stories.</p>
-                <a href="#experience" className="inline-link">A little more about my journey <ArrowRight size={15} /></a>
+                <SectionHeading eyebrow="ABOUT" title={<>I’m Ravi, a student<br /><span>working with data.</span></>} />
+                <p className="about-copy">I’m studying Computer Science and Engineering at Mohan Babu University. I’m interested in data analysis and business intelligence, and I like making information easier to understand through clear charts and reports.</p>
+                <p className="about-copy">I’ve worked on sales and employee attrition analyses and completed a Data Analyst and Business Intelligence internship at Cognevance Technologies.</p>
+                <a href="#experience" className="inline-link">View my internship <ArrowRight size={15} /></a>
               </div>
               <div className="about-highlights">
-                <div className="highlights-top"><span>QUICK SNAPSHOT</span><span className="snapshot-icon"><Sparkles size={15} /></span></div>
+                <div className="highlights-top"><span>AT A GLANCE</span><span className="snapshot-icon"><BarChart3 size={15} /></span></div>
                 <div className="highlight-item"><span className="highlight-icon"><GraduationCap size={18} /></span><span><small>STUDYING</small><b>B.Tech Computer Science</b><em>2023 — 2027</em></span></div>
-                <div className="highlight-item"><span className="highlight-icon"><Award size={18} /></span><span><small>ACADEMICS</small><b>CGPA 8.67</b><em>Mohan Babu University</em></span></div>
-                <div className="highlight-item"><span className="highlight-icon"><BriefcaseBusiness size={18} /></span><span><small>EXPERIENCE</small><b>Data Analyst & BI Intern</b><em>2025 · Cognevance Technologies</em></span></div>
-                <div className="highlight-item"><span className="highlight-icon"><Database size={18} /></span><span><small>GO-TO TOOLS</small><b>Python · SQL · Power BI</b><em>Insights from real-world data</em></span></div>
+                <div className="highlight-item"><span className="highlight-icon"><BarChart3 size={18} /></span><span><small>ACADEMICS</small><b>CGPA 8.67</b><em>Mohan Babu University</em></span></div>
+                <div className="highlight-item"><span className="highlight-icon"><BriefcaseBusiness size={18} /></span><span><small>INTERNSHIP</small><b>Data Analyst & BI Intern</b><em>Cognevance Technologies</em></span></div>
+                <div className="highlight-item"><span className="highlight-icon"><Database size={18} /></span><span><small>TOOLS</small><b>Python · SQL · Power BI</b><em>Plus Excel, Tableau, and Java</em></span></div>
               </div>
             </div>
-            <div className="about-bottom-note"><span className="note-line" /><span>Good analysis starts with asking a better question.</span><span className="note-line" /></div>
+            <div className="about-bottom-note"><span className="note-line" /><span>My focus: careful analysis and clear communication.</span><span className="note-line" /></div>
           </div>
         </section>
 
         <section className="skills-section section-pad" id="skills">
           <div className="container">
-            <SectionHeading eyebrow="MY TOOLKIT" title={<>The right tools for <span>the right questions.</span></>} description="A practical toolkit for exploring data, finding patterns, and sharing insights clearly." />
+            <SectionHeading eyebrow="SKILLS" title={<>Tools I use to work<br /><span>with data.</span></>} description="Programming, data analysis, and visualization tools I’ve used in coursework and projects." />
             <div className="skills-grid">
               {skills.map(({ title, icon: Icon, tone, tools }, index) => (
                 <article className={`skill-card skill-${tone} scroll-reveal`} key={title}>
@@ -384,14 +366,14 @@ function App() {
                 </article>
               ))}
             </div>
-            <div className="skills-footnote"><span className="skills-foot-icon"><Sparkles size={14} /></span> Always learning, always looking for a clearer way to tell the story in the data.</div>
+            <div className="skills-footnote"><span className="skills-foot-icon"><BarChart3 size={14} /></span> My skills include Python, Java, Pandas, NumPy, Matplotlib, Seaborn, Excel, SQL, Power BI, and Tableau.</div>
           </div>
         </section>
 
         <section className="projects-section section-pad" id="projects">
           <div className="container">
             <div className="projects-heading-row">
-              <SectionHeading eyebrow="SELECTED WORK" title={<>Projects built around <span>real questions.</span></>} description="A closer look at how I turn a dataset into a useful point of view." />
+              <SectionHeading eyebrow="PROJECTS" title={<>A couple of data projects<br /><span>I’ve worked on.</span></>} description="Two analyses: e-commerce orders and employee attrition." />
               <span className="project-count"><b>02</b><span>FEATURED<br />PROJECTS</span></span>
             </div>
             <div className="projects-list">
@@ -403,9 +385,7 @@ function App() {
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
                     <div className="project-tech">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
-                    <div className="project-highlights-title">WHAT I EXPLORED</div>
-                    <ul>{project.highlights.map((highlight) => <li key={highlight}><Check size={14} />{highlight}</li>)}</ul>
-                    <div className="project-link-note"><span className="link-note-icon"><ExternalLink size={14} /></span> Project links can be added when the repository or dashboard is available.</div>
+                    <div className="project-record-count"><span>DATASET</span><b>{project.datasetSize}</b></div>
                   </div>
                 </article>
               ))}
@@ -418,25 +398,15 @@ function App() {
           <div className="container">
             <div className="experience-layout">
               <div className="experience-intro">
-                <SectionHeading eyebrow="WHERE I’VE GROWN" title={<>Learning by doing.<br /><span>Growing with data.</span></>} description="Turning classroom foundations into hands-on experience with data." />
-                <div className="experience-date-stamp"><span className="stamp-icon"><BriefcaseBusiness size={17} /></span><span><b>3 MONTHS</b><small>INTERNSHIP EXPERIENCE</small></span><ArrowUpRight size={17} /></div>
+                <SectionHeading eyebrow="EXPERIENCE" title={<>Data Analyst &amp;<br /><span>BI internship.</span></>} description="My internship at Cognevance Technologies." />
+                <div className="experience-date-stamp"><span className="stamp-icon"><BriefcaseBusiness size={17} /></span><span><b>JULY – OCTOBER 2025</b><small>INTERNSHIP</small></span></div>
               </div>
               <article className="experience-card scroll-reveal">
                 <div className="timeline-rail"><span /></div>
                 <div className="experience-card-content">
-                  <div className="experience-card-header"><span className="experience-overline">INTERNSHIP <i /> JUL — OCT 2025</span><span className="experience-mark">CT</span></div>
+                  <div className="experience-card-header"><span className="experience-overline">INTERNSHIP <i /> JULY – OCTOBER 2025</span><span className="experience-mark">CT</span></div>
                   <h3>Data Analyst &<br />Business Intelligence Intern</h3>
                   <p className="company-name">Cognevance Technologies</p>
-                  <div className="experience-rule" />
-                  <p className="responsibility-label">WHAT I WORKED ON</p>
-                  <ul className="responsibility-list">
-                    <li>Cleaned, transformed, and prepared datasets for reporting.</li>
-                    <li>Analyzed data using Excel, SQL, and Python.</li>
-                    <li>Created visual reports and Power BI dashboards.</li>
-                    <li>Conducted exploratory analysis to identify trends and patterns.</li>
-                    <li>Prepared analytical summaries to support data-driven decisions.</li>
-                  </ul>
-                  <div className="experience-tools"><span>Excel</span><span>SQL</span><span>Python</span><span>Power BI</span></div>
                 </div>
               </article>
             </div>
@@ -446,8 +416,8 @@ function App() {
         <section className="education-section section-pad" id="education">
           <div className="container">
             <div className="education-top">
-              <SectionHeading eyebrow="EDUCATION" title={<>Building a strong <span>foundation.</span></>} description="The academic path behind my interest in technology and analytics." />
-              <div className="education-note"><span className="education-note-icon"><GraduationCap size={18} /></span>Learning never really<br />leaves the classroom.</div>
+              <SectionHeading eyebrow="EDUCATION" title={<>Computer Science<br /><span>and Engineering.</span></>} description="B.Tech at Mohan Babu University." />
+              <div className="education-note"><span className="education-note-icon"><GraduationCap size={18} /></span>2023–2027<br />CGPA 8.67</div>
             </div>
             <div className="education-list">
               {education.map(({ degree, school, location, date, result, icon: Icon }, index) => (
@@ -455,8 +425,8 @@ function App() {
                   <div className="education-year">{date}</div>
                   <div className="education-marker"><Icon size={17} /></div>
                   <div className="education-detail"><h3>{degree}</h3><p>{school} <span>·</span> {location}</p></div>
-                  <div className="education-result"><span>{index === 0 ? "CURRENT RESULT" : "RESULT"}</span><b>{result}</b></div>
-                  {index === 0 && <span className="current-tag"><i /> CURRENT</span>}
+                  <div className="education-result"><span>{index === 0 ? "CGPA" : "RESULT"}</span><b>{result}</b></div>
+                  {index === 0 && <span className="current-tag"><i /> IN PROGRESS</span>}
                 </article>
               ))}
             </div>
@@ -465,14 +435,14 @@ function App() {
 
         <section className="certifications-section section-pad" id="certifications">
           <div className="container">
-            <div className="cert-topline"><SectionHeading eyebrow="CONTINUOUS LEARNING" title={<>Learning that goes <span>beyond the syllabus.</span></>} description="Certifications and focused learning in analytics, BI, Python, and SQL." /><span className="cert-count">04 <small>CERTIFICATES</small></span></div>
+            <SectionHeading eyebrow="CERTIFICATIONS" title={<>Courses and certificates<br /><span>in my toolkit.</span></>} description="Additional training in data analytics, Power BI, Python, and SQL." />
             <div className="cert-grid">
-              {certifications.map((cert, i) => (
-                <article className="cert-card scroll-reveal" key={cert.name}>
-                  <div className={`cert-mark ${cert.tone}`}>{cert.mark}</div>
-                  <div className="cert-meta"><span>CERTIFICATION 0{i + 1}</span><ArrowUpRight size={14} /></div>
-                  <h3>{cert.name}</h3>
-                  <div className="cert-issuer"><span className="issuer-dot" /> Issued by <b>{cert.issuer}</b></div>
+              {certifications.map(({ name, issuer }, index) => (
+                <article className="cert-card scroll-reveal" key={name}>
+                  <div className="cert-mark">{issuer[0]}</div>
+                  <div className="cert-meta">CERTIFICATION 0{index + 1}</div>
+                  <h3>{name}</h3>
+                  <div className="cert-issuer"><span className="issuer-dot" /> Issued by <b>{issuer}</b></div>
                 </article>
               ))}
             </div>
@@ -482,9 +452,12 @@ function App() {
         <section className="achievement-section">
           <div className="container">
             <article className="achievement-card">
-              <div className="achievement-icon-wrap"><Award size={25} /></div>
-              <div className="achievement-copy"><span className="achievement-kicker">A MOMENT I’M PROUD OF</span><h2>Outstanding Student Recognition</h2><p>Received a Certificate of Appreciation for securing the highest marks in the Intermediate Public Examinations.</p></div>
-              <div className="achievement-seal"><span><Award size={18} /></span><b>ACADEMIC<br />RECOGNITION</b></div>
+              <div className="achievement-icon-wrap"><Award size={23} /></div>
+              <div className="achievement-copy">
+                <span className="achievement-kicker">ACADEMIC ACHIEVEMENT</span>
+                <h2>Outstanding Student Recognition</h2>
+                <p>Received a Certificate of Appreciation for securing the highest marks in the Intermediate Public Examinations.</p>
+              </div>
             </article>
           </div>
         </section>
@@ -495,8 +468,8 @@ function App() {
               <div className="contact-glow" />
               <div className="contact-content">
                 <span className="eyebrow"><span className="eyebrow-dot" /> OPEN TO OPPORTUNITIES</span>
-                <h2>Let’s connect and<br /><span>turn data into insights.</span></h2>
-                <p>Looking for an aspiring analyst who’s curious, thoughtful, and ready to learn? I’d love to hear from you.</p>
+                <h2>Have a question or<br /><span>an opportunity in mind?</span></h2>
+                <p>I’m interested in data analysis and business intelligence roles, internships, and conversations about working with data.</p>
                 <a className="button button-primary contact-email-button" href="mailto:grk18d@gmail.com"><Mail size={16} /> Send me an email <ArrowRight size={15} /></a>
               </div>
               <div className="contact-details">
@@ -504,26 +477,24 @@ function App() {
                 <a className="contact-detail-link" href="mailto:grk18d@gmail.com"><span className="contact-detail-icon"><Mail size={17} /></span><span><small>EMAIL</small><b>grk18d@gmail.com</b></span><ArrowUpRight size={15} /></a>
                 <a className="contact-detail-link" href="tel:+919848712872"><span className="contact-detail-icon"><Send size={17} /></span><span><small>PHONE</small><b>+91 9848712872</b></span><ArrowUpRight size={15} /></a>
                 <div className="contact-socials">
-                  <span>FIND ME ELSEWHERE</span>
-                  <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile placeholder — replace with your profile URL"><Linkedin size={17} /><span>LinkedIn</span><ArrowUpRight size={13} /></a>
-                  <a href="https://github.com/your-github-username" target="_blank" rel="noreferrer" aria-label="GitHub profile placeholder — replace with your profile URL"><Github size={17} /><span>GitHub</span><ArrowUpRight size={13} /></a>
+                  <span>GITHUB</span>
+                  <a href="https://github.com/gollaravikumar" target="_blank" rel="noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /><span>gollaravikumar</span><ArrowUpRight size={13} /></a>
                 </div>
-                <div className="social-placeholder-note">Replace the LinkedIn and GitHub links with your profile URLs.</div>
               </div>
               <div className="contact-index">LET’S MAKE SOMETHING<br />MEANINGFUL WITH DATA <ArrowDownRight size={15} /></div>
             </div>
-            <p className="form-note"><span className="form-note-dot" /> The resume PDF hasn’t been added yet — email me to request a copy. The button above opens your email app; there’s no unconnected contact form here.</p>
+            <p className="form-note"><span className="form-note-dot" /> Email is the best way to reach me. My resume is available on request.</p>
           </div>
         </section>
       </main>
 
       <footer className="site-footer">
         <div className="container footer-main">
-          <div className="footer-brand"><Logo light /><p>Turning data into insights,<br />one question at a time.</p></div>
-          <div className="footer-navigation"><span>EXPLORE</span><div>{[["About", "about"], ["Skills", "skills"], ["Projects", "projects"], ["Experience", "experience"], ["Education", "education"], ["Contact", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></div>
-          <div className="footer-social"><span>ELSEWHERE</span><div><a href="https://github.com/your-github-username" target="_blank" rel="noreferrer" aria-label="GitHub profile placeholder"><Github size={17} /></a><a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile placeholder"><Linkedin size={17} /></a><a href="mailto:grk18d@gmail.com" aria-label="Email Ravi Kumar"><Mail size={17} /></a></div></div>
+          <div className="footer-brand"><Logo light /><p>Data analysis and business intelligence.<br />Computer Science student, 2023–2027.</p></div>
+          <div className="footer-navigation"><span>EXPLORE</span><div>{[["About", "about"], ["Skills", "skills"], ["Projects", "projects"], ["Experience", "experience"], ["Education", "education"], ["Certifications", "certifications"], ["Contact", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></div>
+          <div className="footer-social"><span>ELSEWHERE</span><div><a href="https://github.com/gollaravikumar" target="_blank" rel="noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /></a><a href="mailto:grk18d@gmail.com" aria-label="Email Ravi Kumar"><Mail size={17} /></a></div></div>
         </div>
-        <div className="container footer-bottom"><span>© {new Date().getFullYear()} Golla Ravi Kumar. Made with curiosity & care.</span><a href="#home">BACK TO TOP <ArrowUpRight size={13} /></a></div>
+        <div className="container footer-bottom"><span>© {new Date().getFullYear()} Golla Ravi Kumar</span><a href="#home">BACK TO TOP <ArrowUpRight size={13} /></a></div>
       </footer>
       <a className={`back-to-top${showTop ? " back-to-top-visible" : ""}`} href="#home" aria-label="Back to top"><ArrowDown size={16} /></a>
     </>
