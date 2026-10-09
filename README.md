@@ -7,7 +7,7 @@ A personal portfolio for my data analysis and business intelligence projects, sk
 - Responsive navigation and page layout
 - Project cards with illustrative dashboard previews
 - Sections for skills, projects, internship, education, certifications, and contact
-- Email links for contacting me and requesting my resume
+- Email links for contacting me and a direct resume PDF download
 
 The dashboard previews are illustrative and are not project screenshots or reported results.
 

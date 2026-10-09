@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Code2,
   Database,
+  Download,
   FileChartColumnIncreasing,
   BriefcaseBusiness,
   Github,
@@ -118,11 +119,12 @@ function ResumeButton({ className = "" }: { className?: string }) {
   return (
     <a
       className={`resume-button ${className}`}
-      href="mailto:grk18d@gmail.com?subject=Resume%20request"
-      aria-label="Email Ravi Kumar to request a resume"
+      href="/Ravi-Kumar-Resume.pdf"
+      download="Golla-Ravi-Kumar-Resume.pdf"
+      aria-label="Download Golla Ravi Kumar's resume"
     >
-      <Mail size={15} strokeWidth={2} />
-      <span>Request Resume</span>
+      <Download size={15} strokeWidth={2} />
+      <span>Download Resume</span>
     </a>
   );
 }
@@ -324,9 +326,9 @@ function App() {
           <div className="container hero-layout">
             <div className="hero-copy">
               <span className="hero-label"><span className="status-dot" /> ASPIRING DATA ANALYST</span>
-              <h1>Golla Ravi<br /><span> Kumar.</span></h1>
+              <h1>Golla<br /><span>Ravi Kumar</span></h1>
               <p className="hero-tagline">Data analysis &amp; business intelligence<br /><span>Computer Science student · 2023–2027</span></p>
-              <p className="hero-description">I’m Golla Ravi Kumar, a Computer Science and Engineering student at Mohan Babu University. I use Python, SQL, Excel, and BI tools to work through practical data questions.</p>
+              <p className="hero-description">Aspiring Data Analyst | Transforming Data into Insights with SQL, Python, Excel, Power BI &amp; Tableau | Turning Raw Data into Stories</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">View Projects <ArrowRight size={16} /></a>
                 <ResumeButton className="button-outline" />
