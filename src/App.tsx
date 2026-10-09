@@ -14,6 +14,7 @@ import {
   Github,
   GraduationCap,
   Layers3,
+  Linkedin,
   Mail,
   Menu,
   Send,
@@ -65,6 +66,7 @@ const projects = [
     title: "E-Commerce Sales & Customer Analytics",
     description: "I analyzed more than 1,500 e-commerce orders with Excel, SQL, Python, and Power BI.",
     datasetSize: "1,500+ orders",
+    repository: "https://github.com/gollaravikumar/E-Commerce-Sales-Customer-Analytics-Project",
     technologies: ["Excel", "SQL", "Python", "Pandas", "Matplotlib", "Power BI"],
     kind: "commerce" as const,
   },
@@ -73,6 +75,7 @@ const projects = [
     title: "Employee Attrition Analysis",
     description: "I analyzed 300 employee records for an employee attrition analysis using Excel, SQL, Python, and Power BI.",
     datasetSize: "300 records",
+    repository: "https://github.com/gollaravikumar/Employee-Attrition-Analysis-Project",
     technologies: ["Excel", "SQL", "Python", "Power BI"],
     kind: "people" as const,
   },
@@ -305,6 +308,10 @@ function App() {
                 <a key={id} className={activeSection === id ? "nav-active" : ""} href={`#${id}`} onClick={closeMenu}>{label}</a>
               ))}
             </div>
+            <div className="nav-social" aria-label="Social profiles">
+              <a href="https://www.linkedin.com/in/golla-ravi-kumar18/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)"><Linkedin size={17} /></a>
+              <a href="https://github.com/gollaravikumar" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in a new tab)"><Github size={17} /></a>
+            </div>
             <ResumeButton className="nav-resume" />
           </div>
         </nav>
@@ -382,10 +389,11 @@ function App() {
                   <div className="project-visual"><DashboardPreview kind={project.kind} /><span className="mockup-label"><span /> DESIGN MOCKUP</span></div>
                   <div className="project-details">
                     <div className="project-number">PROJECT {project.id}<span> · </span>DATA ANALYTICS</div>
-                    <h3>{project.title}</h3>
+                    <h3><a className="project-title-link" href={project.repository} target="_blank" rel="noopener noreferrer">{project.title}</a></h3>
                     <p>{project.description}</p>
                     <div className="project-tech">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
                     <div className="project-record-count"><span>DATASET</span><b>{project.datasetSize}</b></div>
+                    <a className="project-repository-link" href={project.repository} target="_blank" rel="noopener noreferrer"><Github size={17} /> View on GitHub <ArrowUpRight size={14} /></a>
                   </div>
                 </article>
               ))}
@@ -477,8 +485,9 @@ function App() {
                 <a className="contact-detail-link" href="mailto:grk18d@gmail.com"><span className="contact-detail-icon"><Mail size={17} /></span><span><small>EMAIL</small><b>grk18d@gmail.com</b></span><ArrowUpRight size={15} /></a>
                 <a className="contact-detail-link" href="tel:+919848712872"><span className="contact-detail-icon"><Send size={17} /></span><span><small>PHONE</small><b>+91 9848712872</b></span><ArrowUpRight size={15} /></a>
                 <div className="contact-socials">
-                  <span>GITHUB</span>
-                  <a href="https://github.com/gollaravikumar" target="_blank" rel="noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /><span>gollaravikumar</span><ArrowUpRight size={13} /></a>
+                  <span>PROFILES</span>
+                  <a href="https://www.linkedin.com/in/golla-ravi-kumar18/" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on LinkedIn (opens in a new tab)"><Linkedin size={17} /><span>LinkedIn</span><ArrowUpRight size={13} /></a>
+                  <a href="https://github.com/gollaravikumar" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on GitHub (opens in a new tab)"><Github size={17} /><span>GitHub</span><ArrowUpRight size={13} /></a>
                 </div>
               </div>
               <div className="contact-index">LET’S MAKE SOMETHING<br />MEANINGFUL WITH DATA <ArrowDownRight size={15} /></div>
@@ -492,7 +501,7 @@ function App() {
         <div className="container footer-main">
           <div className="footer-brand"><Logo light /><p>Data analysis and business intelligence.<br />Computer Science student, 2023–2027.</p></div>
           <div className="footer-navigation"><span>EXPLORE</span><div>{[["About", "about"], ["Skills", "skills"], ["Projects", "projects"], ["Experience", "experience"], ["Education", "education"], ["Certifications", "certifications"], ["Contact", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></div>
-          <div className="footer-social"><span>ELSEWHERE</span><div><a href="https://github.com/gollaravikumar" target="_blank" rel="noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /></a><a href="mailto:grk18d@gmail.com" aria-label="Email Ravi Kumar"><Mail size={17} /></a></div></div>
+          <div className="footer-social"><span>ELSEWHERE</span><div><a href="https://www.linkedin.com/in/golla-ravi-kumar18/" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on LinkedIn"><Linkedin size={17} /></a><a href="https://github.com/gollaravikumar" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /></a><a href="mailto:grk18d@gmail.com" aria-label="Email Ravi Kumar"><Mail size={17} /></a></div></div>
         </div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} Golla Ravi Kumar</span><a href="#home">BACK TO TOP <ArrowUpRight size={13} /></a></div>
       </footer>
