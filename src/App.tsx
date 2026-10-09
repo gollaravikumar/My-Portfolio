@@ -327,7 +327,6 @@ function App() {
             <div className="hero-copy">
               <span className="hero-label"><span className="status-dot" /> ASPIRING DATA ANALYST</span>
               <h1>Golla<br /><span>Ravi Kumar</span></h1>
-              <p className="hero-tagline">Data analysis &amp; business intelligence<br /><span>Computer Science student · 2023–2027</span></p>
               <p className="hero-description">Aspiring Data Analyst | Transforming Data into Insights with SQL, Python, Excel, Power BI &amp; Tableau | Turning Raw Data into Stories</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">View Projects <ArrowRight size={16} /></a>
@@ -501,7 +500,7 @@ function App() {
 
       <footer className="site-footer">
         <div className="container footer-main">
-          <div className="footer-brand"><Logo light /><p>Data analysis and business intelligence.<br />Computer Science student, 2023–2027.</p></div>
+          <div className="footer-brand"><Logo light /></div>
           <div className="footer-navigation"><span>EXPLORE</span><div>{[["About", "about"], ["Skills", "skills"], ["Projects", "projects"], ["Experience", "experience"], ["Education", "education"], ["Certifications", "certifications"], ["Contact", "contact"]].map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></div>
           <div className="footer-social"><span>ELSEWHERE</span><div><a href="https://www.linkedin.com/in/golla-ravi-kumar18/" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on LinkedIn"><Linkedin size={17} /></a><a href="https://github.com/gollaravikumar" target="_blank" rel="noopener noreferrer" aria-label="Golla Ravi Kumar on GitHub"><Github size={17} /></a><a href="mailto:grk18d@gmail.com" aria-label="Email Ravi Kumar"><Mail size={17} /></a></div></div>
         </div>
